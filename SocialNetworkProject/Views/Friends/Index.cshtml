@@ -1,0 +1,154 @@
+﻿@* Friend Index.cshtml *@
+
+@model IEnumerable<SocialNetworkProject.Entities.Friend>
+
+@{
+    ViewData["Title"] = "Friends List";
+    var friends = ViewBag.Friends as IEnumerable<SocialNetworkProject.Entities.Friend>;
+    var peopleYouMayKnow = ViewBag.PeopleYouMayKnow as IEnumerable<SocialNetworkProject.Entities.Friend>;
+}
+
+<div class="content-page-box-area">
+    <div class="page-banner-box bg-4">
+        <h3>Friends</h3>
+    </div>
+
+    <div class="friends-inner-box-style d-flex justify-content-between align-items-center margin-top-25">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="friend-requests-tab" data-bs-toggle="tab" href="#friend-requests" role="tab" aria-controls="friend-requests">Friends</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="people-you-know-tab" data-bs-toggle="tab" href="#people-you-know" role="tab" aria-controls="people-you-know">Requested</a>
+            </li>
+        </ul>
+
+        <div class="friends-search-box">
+            <form method="get" asp-action="Index" asp-controller="Friends">
+                <input type="text" name="searchQuery" class="input-search" placeholder="Search friends..." value="@ViewBag.CurrentSearchQuery">
+                <button type="submit"><i class="ri-search-line"></i></button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="friend-requests" role="tabpanel">
+            <div class="row justify-content-center">
+                @if (friends != null && friends.Any())
+                {
+                    @foreach (var friend in friends)
+                    {
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-friends-card">
+                                <div class="friends-image">
+                                    <a href="#">
+                                        <img src="~/images/back2.jpg" style="height: 65px; alt="Friend Image">
+                                    </a>
+                                </div>
+                                <div class="friends-content">
+                                    <div class="friends-info d-flex justify-content-between align-items-center">
+                                        <a href="#">
+                                            <img src="~/images/friend.jpg"
+                                                 style="width: 80px; height: 80px; border-radius: 10px;"
+                                                 alt="Person">
+                                        </a>
+
+                                        <div class="text ms-3">
+                                            <h3><a href="#">@friend.FullName</a></h3>
+                                            <span>@friend.MutualFriends Mutual Friends</span>
+                                        </div>
+                                    </div>
+                                    <ul class="statistics">
+                                        <li>
+                                            <span class="item-number">@friend.Likes</span>
+                                            <span class="item-text">Likes</span>
+                                        </li>
+                                        <li>
+                                            <span class="item-number">@friend.Following</span>
+                                            <span class="item-text">Following</span>
+                                        </li>
+                                        <li>
+                                            <span class="item-number">@friend.Followers</span>
+                                            <span class="item-text">Followers</span>
+                                        </li>
+                                    </ul>
+                                    <div class="button-group d-flex justify-content-between align-items-center">
+                                        <form asp-action="ToggleFollow" asp-controller="Friends" method="post">
+                                            <input type="hidden" name="id" value="@friend.Id" />
+                                            <button type="submit" class="btn btn-danger">
+                                                @if (friend.Following)
+                                                {
+                                                    <span>Unfollow</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>Follow</span>
+                                                }
+                                            </button>
+                                        </form>
+                                        <button type="button" class="btn btn-primary"
+                                                onclick="window.location.href='@Url.Action("Message", "Friends", new { id = friend.Id })'"
+                                                style="width: 110px; height: 40px">
+                                            Message
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No friends to display.</p>
+                }
+            </div>
+        </div>
+
+        <!-- People You Know Tab -->
+        <div class="tab-pane fade" id="people-you-know" role="tabpanel">
+            <div class="row justify-content-center">
+                @if (peopleYouMayKnow != null && peopleYouMayKnow.Any())
+                {
+                    @foreach (var person in peopleYouMayKnow)
+                    {
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-friends-card">
+                                <div class="friends-image">
+                                    <a href="#">
+                                        <img src="~/images/back.jpg" style="height: 65px; alt="Friend Image">
+                                    </a>
+                                </div>
+                                <div class="friends-content">
+                                    <div class="friends-info d-flex justify-content-between align-items-center">
+                                        <a href="#">
+                                            <img src="~/images/man.jpg"
+                                                 style="width: 80px; height: 80px; border-radius: 10px;"
+                                                 alt="Person">
+                                        </a>
+
+                                        <div class="text ms-3">
+                                            <h3><a href="#">@person.FullName</a></h3>
+                                            <span>@person.MutualFriends Mutual Friends</span>
+                                        </div>
+                                    </div>
+                                    <div class="button-group d-flex justify-content-between align-items-center">
+                                        <form asp-action="ToggleFollow" asp-controller="Friends" method="post">
+                                            <input type="hidden" name="id" value="@person.Id" />
+                                            <button type="submit" class="btn btn-success">Follow</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No people you may know.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

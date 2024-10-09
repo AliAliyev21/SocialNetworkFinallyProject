@@ -1,0 +1,72 @@
+﻿@model SocialNetworkProject.Models.WeatherResponse
+
+@{
+    ViewData["Title"] = "Weather Index";
+}
+
+<div class="content-page-box-area">
+    <div class="page-banner-box bg-11">
+        <h3>Weather</h3>
+    </div>
+
+    <div class="weather-body">
+        <div class="weather-image-wrap">
+            <a href="#"><img src="~/images/baku.jpg" alt="Weather image"></a>
+        </div>
+
+        <form class="weather-form" method="post" asp-action="GetWeather">
+            <div class="title">
+                <h3>Search Location</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Country and Timezone</label>
+                        <input type="text" name="country" class="form-control" value="Baku" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Forecast Days</label>
+                        <input type="number" name="forecastDays" class="form-control" min="1" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Temperature Unit</label>
+                        <select name="temperatureUnit" class="form-control">
+                            <option value="metric">Celsius</option>
+                            <option value="imperial">Fahrenheit</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12">
+                    <button type="submit" class="default-btn">Check Weather</button>
+                </div>
+            </div>
+        </form>
+
+        @if (Model != null)
+        {
+            <div class="weather-results">
+                <h3>Weather in @Model.Name</h3>
+                <p>
+                    Temperature: @Model.Main.Temp @if (Model.Main.Temp < 100)
+                    {
+                        <text>°C</text>
+                    }
+                    else
+                    {
+                        <text>°F</text>
+                    }
+                </p>
+                <p>Description: @Model.Weather[0].Description</p>
+                <img src="~/images/baku2.jpg" alt="Weather icon" />
+            </div>
+        }
+    </div>
+</div>

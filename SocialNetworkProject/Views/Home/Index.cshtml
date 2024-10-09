@@ -1,5 +1,169 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SocialNetworkProject.Controllers.HomeViewModel
+
 @{
+    ViewData["Title"] = "Index";
 }
+
+<div class="content-page-box-area">
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            <aside class="widget-area">
+                <div class="widget widget-view-profile">
+                    <div class="profile-box d-flex justify-content-between align-items-center">
+                        <a asp-controller="Profile" asp-action="Index">
+                            <img src="~/images/man2.jpg" alt="image">
+                        </a>
+                        <div class="text ms-2">
+                            <h3><a href="#">@Model.User.FullName</a></h3>
+                            <span>Baku</span>
+                        </div>
+                    </div>
+                    <ul class="profile-statistics">
+                        <li>
+                            <a href="#">
+                                <span class="item-number">1000</span>
+                                <span class="item-text">Likes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="item-number">150</span>
+                                <span class="item-text">Following</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="item-number">120</span>
+                                <span class="item-text">Followers</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="profile-btn">
+                        <a asp-controller="Profile" asp-action="Index" class="default-btn">View Profile</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="news-feed-area">
+                <h3 class="news-feed-title">Create New Post</h3>
+                <div class="news-feed news-feed-form">
+                    <form asp-action="CreatePost" method="post" enctype="multipart/form-data" class="post-form">
+                        <div class="form-group mb-3">
+                            <textarea name="message" class="form-control" placeholder="Write something here..." required rows="3"></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" name="image" id="image" class="form-control" accept="image/*">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="video" class="form-label">Video</label>
+                                <input type="file" name="video" id="video" class="form-control" accept="video/*">
+                            </div>
+                        </div>
+                        <div class="form-group text-end">
+                            <button type="submit" class="btn btn-primary btn-lg">Post</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="post-list">
+                    @foreach (var post in Model.Posts)
+                    {
+                        <div class="post border p-3 mb-3 bg-light">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>@Model.User.FullName</strong> <small>@post.CreatedAt.ToShortDateString()</small>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" id="postOptions" data-bs-toggle="dropdown" aria-expanded="false">
+                                        ...
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="postOptions">
+                                        <li><a class="dropdown-item" href="@Url.Action("HidePost", "Home", new { id = post.Id })">Hide</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("EditPost", "Home", new { id = post.Id })">Edit</a></li>
+                                        <li><a class="dropdown-item text-danger" href="@Url.Action("DeletePost", "Home", new { id = post.Id })">Delete</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>@post.Message</p>
+                            @if (!string.IsNullOrEmpty(post.ImagePath))
+                            {
+                                <img src="@post.ImagePath" class="post-image" alt="Post Image" />
+                            }
+                            @if (!string.IsNullOrEmpty(post.VideoPath))
+                            {
+                                <video controls class="post-video">
+                                    <source src="@post.VideoPath" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-12">
+            <aside class="widget-area">
+                <div class="content-page-box-area">
+                    <div class="weather-body">
+                        <div class="weather-image-wrap">
+                            <a href="#"><img src="~/images/baku2.jpg" alt="Weather image"></a>
+                        </div>
+                        @if (Model.Weather != null)
+                        {
+                            <div class="weather-results">
+                                <h3>Weather in @Model.Weather.Name</h3>
+                                <p>
+                                    Temperature: @Model.Weather.Main.Temp @if (Model.Weather.Main.Temp < 100)
+                                    {
+                                        <text>°C</text>
+                                    }
+                                    else
+                                    {
+                                        <text>°F</text>
+                                    }
+                                </p>
+                                <p>Description: @Model.Weather.Weather[0].Description</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .post-list {
+        margin-top: 20px;
+    }
+
+    .post {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .post-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .post-video {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .dropdown-toggle {
+        cursor: pointer;
+    }
+</style>

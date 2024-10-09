@@ -1057,6 +1057,90 @@
       "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
     },
     {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\back.jpg",
+      "PackagePath": "staticwebassets\\images\\back.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\back2.jpg",
+      "PackagePath": "staticwebassets\\images\\back2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\baku.jpg",
+      "PackagePath": "staticwebassets\\images\\baku.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\baku2.jpg",
+      "PackagePath": "staticwebassets\\images\\baku2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\friend.jpg",
+      "PackagePath": "staticwebassets\\images\\friend.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\man.jpg",
+      "PackagePath": "staticwebassets\\images\\man.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\man2.jpg",
+      "PackagePath": "staticwebassets\\images\\man2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\party.jpg",
+      "PackagePath": "staticwebassets\\images\\party.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\user1.jpg",
+      "PackagePath": "staticwebassets\\images\\user1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\user2.jpg",
+      "PackagePath": "staticwebassets\\images\\user2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\user3.jpg",
+      "PackagePath": "staticwebassets\\images\\user3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\user4.jpg",
+      "PackagePath": "staticwebassets\\images\\user4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\user5.jpg",
+      "PackagePath": "staticwebassets\\images\\user5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\images\\user6.jpg",
+      "PackagePath": "staticwebassets\\images\\user6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\uploads\\285dd2cc-9c11-429f-bd38-f482b43fab36_party.jpg",
+      "PackagePath": "staticwebassets\\uploads\\285dd2cc-9c11-429f-bd38-f482b43fab36_party.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\uploads\\388c0b43-6e00-4277-ac95-f653c7af7f2c_2024-08-20 22-39-21.mp4",
+      "PackagePath": "staticwebassets\\uploads\\388c0b43-6e00-4277-ac95-f653c7af7f2c_2024-08-20 22-39-21.mp4"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\uploads\\a0cdbc33-a84f-4914-9a68-11fa80665cc4_user6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a0cdbc33-a84f-4914-9a68-11fa80665cc4_user6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\uploads\\bfae59dc-50e7-4d21-b1fd-a8b7b90ed4c2_user6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\bfae59dc-50e7-4d21-b1fd-a8b7b90ed4c2_user6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\uploads\\e102bd67-df7f-427c-82bb-efa4cf71218b_user6.jpg",
+      "PackagePath": "staticwebassets\\uploads\\e102bd67-df7f-427c-82bb-efa4cf71218b_user6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\uploads\\ebd2337d-7b9b-4137-b6d9-7e47699f94c1_2024-08-20 22-39-21.mp4",
+      "PackagePath": "staticwebassets\\uploads\\ebd2337d-7b9b-4137-b6d9-7e47699f94c1_2024-08-20 22-39-21.mp4"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\SocialNetworkProject\\SocialNetworkProject\\wwwroot\\uploads\\user4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\user4.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SocialNetworkProject.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
